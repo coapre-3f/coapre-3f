@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空間借用與申請</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        iframe { width: 100%; border: none; }
+        .container { max-width: 1200px; margin: auto; }
+    </style>
+    <script>
+        function reloadCalendar() {
+            var iframe = document.getElementById("calendarFrame");
+            iframe.src = "https://calendar.google.com/calendar/embed?src=46690289cfcd44dcfe5e4c66307b8703f3fc96923c47dc29a99770c525aa7f24%40group.calendar.google.com&ctz=Asia%2FTaipei&nocache=" + new Date().getTime();
+        }
+
+        // 每 5 分鐘自動更新 Google 日曆
+        setInterval(reloadCalendar, 300000);
+
+        // 當使用者回到頁面時自動刷新 Google 日曆
+        document.addEventListener("visibilitychange", function() {
+            if (!document.hidden) {
+                reloadCalendar();
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <h1>空間借用與申請系統</h1>
+
+    <div class="container">
+        <h2>📅 參考目前借用情形</h2>
+        <iframe id="calendarFrame"
+                src="https://calendar.google.com/calendar/embed?src=46690289cfcd44dcfe5e4c66307b8703f3fc96923c47dc29a99770c525aa7f24%40group.calendar.google.com&ctz=Asia%2FTaipei"
+                style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
+        </iframe>
+    </div>
+
+    <div class="container">
+        <h2>📝 借用申請表單</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSduAKGjyY5SJ4Yfshx_mLWiw2nRkmQy-A3v308EDjX7f2t09Q/viewform?embedded=true"
+                width="640" height="2381" frameborder="0" marginheight="0" marginwidth="0">
+            載入中…
+        </iframe>
+    </div>
+
+</body>
+</html>
